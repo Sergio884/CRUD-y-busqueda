@@ -11,3 +11,16 @@
 * **Read** (Leer)
 * **Update** (Actulizar)
 * **Delete** (Borrar)
+
+## Para usar el proyecto debemos de crear una tabla de la siguiente forma:
+
+CREATE TABLE crud{
+    id int primary key NOT NULL auto_increment,
+    nombre varchar(100) NOT NULL,
+    fecha datetime NOT NULL
+}
+
+        * user: 'root',
+        * password: '',
+        * database: 'crud',
+        * port: '3307'
