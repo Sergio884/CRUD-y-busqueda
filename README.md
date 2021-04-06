@@ -1,5 +1,5 @@
 # CRUD y busqueda
-## Tecnologías útilizadas:
+## Tecnologías utilizadas:
 1. NODE.js
 2. HTML
 3. Mysql
