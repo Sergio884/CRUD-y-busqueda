@@ -1,4 +1,4 @@
-# CRUD y busqueda
+# CRUD y búsqueda
 ## Tecnologías utilizadas:
 1. NODE.js
 2. HTML
@@ -9,7 +9,7 @@
 # CRUD
 * **Create** (crear)
 * **Read** (Leer)
-* **Update** (Actulizar)
+* **Update** (Actualizar)
 * **Delete** (Borrar)
 
 ## Para usar el proyecto debemos de crear una tabla de la siguiente forma:
