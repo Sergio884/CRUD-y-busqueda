@@ -20,14 +20,14 @@ connection.connect((err)=>{
 });
 
 class dbConnection{
-    static getDbConnection(){
+    static getDbConnectionIntancia(){
         return instance ? instance : new dbConnection();
     }
 
     async getAllData(){
         try{
             const response = await new Promise((resolve,reject) => {
-                const query = "SELECT * FROM nombres;";
+                const query = "SELECT * FROM nombre;";
                 connection.query(query,(err,results)=> {
                     if(err) reject(new Error(err.message));
                     resolve(results);
@@ -38,6 +38,24 @@ class dbConnection{
             console.log(error);
         }
     }
+
+    async insertarNombre(nombre){
+        try{
+            const agregarFecha = new Date();
+            const insertID = await new Promise((resolve,reject) => {
+                const query = "INSERT INTO nombre(nombre,fecha) VALUES(?,?);";
+                connection.query(query,[nombre,agregarFecha],(err,result)=> {
+                    if(err) reject(new Error(err.message));
+                    resolve(result.insertID);
+                })
+            });
+            //return response
+            console.log(insertID);
+        } catch(error){
+            console.log(error);
+        }
+    }
 }
+
 
 module.exports = dbConnection;  

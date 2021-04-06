@@ -7,16 +7,16 @@ document.addEventListener('DOMContentLoaded',function (){
 const addBtn = document.querySelector('#agregar-btn');
 
 addBtn.onclick = function(){
-    const nameInput = document.querySelector('#nombre-input');
-    const name = nameInput.value;
-    nameInput = "";
+    const nombreInput = document.querySelector('#nombre-input');
+    const nombre = nombreInput.value;
+    nombreInput = "";
 
     fetch('http://localhost:5000/insert', {
         headers:{
             'Content-type' : 'application/json'
         },
         method: 'POST',
-        body: JSON.stringify({name:name})
+        body: JSON.stringify({nombre:nombre})
     })
     .then(response => response.json())
     .then(data => insertRowIntoTable(data['data']));
