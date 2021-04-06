@@ -5,6 +5,8 @@ const dotenv = require('dotenv');
 const { response, request } = require('express');
 dotenv.config();
 
+const dbConnection = require('./dbConnection');
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended = false}));
@@ -17,7 +19,12 @@ app.post('/insert',(request,response)=>{
 
 //Read
 app.get('/gelAll',(request,response)=>{
-    console.log('test');
+    const db = dbConnection.getDbConnection();
+    const response = db.getAllData();
+
+    result
+    .then(data => response.json({data:data}))
+    .catch(err => console.log(err));
 })
 
 
