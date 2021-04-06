@@ -16,7 +16,7 @@ connection.connect((err)=>{
     if(err){
         console.log(err.message);
     }
-    console.db('DB '+connection.state);
+    console.log('db '+connection.state);
 });
 
 class dbConnection{
@@ -26,13 +26,12 @@ class dbConnection{
 
     async getAllData(){
         try{
-            const response = await new Promise((resolve,reject)
-            => {
+            const response = await new Promise((resolve,reject) => {
                 const query = "SELECT * FROM nombres;";
                 connection.query(query,(err,results)=> {
                     if(err) reject(new Error(err.message));
                     resolve(results);
-                });
+                })
             });
             return response
         } catch(error){

@@ -5,11 +5,11 @@ const dotenv = require('dotenv');
 const { response, request } = require('express');
 dotenv.config();
 
-const dbConnection = require('./dbConnection');
+const dbConnection = require('./dbConnection.js');
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended = false}));
+app.use(express.urlencoded({extended : false}));
 
 //Create
 app.post('/insert',(request,response)=>{
@@ -20,7 +20,7 @@ app.post('/insert',(request,response)=>{
 //Read
 app.get('/gelAll',(request,response)=>{
     const db = dbConnection.getDbConnection();
-    const response = db.getAllData();
+    const result = db.getAllData();
 
     result
     .then(data => response.json({data:data}))
