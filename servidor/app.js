@@ -13,10 +13,10 @@ app.use(express.urlencoded({extended : false}));
 
 //Create
 app.post('/insert',(request,response)=>{
-    const {nombre}=request.body;
+    const {name}=request.body;
     const db = dbConnection.getDbConnectionInstancia();
 
-    const result = db.insertarNombre(nombre);
+    const result = db.insertarNombre(name);
 
     result
     .then(data => response.json({success:true}))

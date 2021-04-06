@@ -20,7 +20,7 @@ connection.connect((err)=>{
 });
 
 class dbConnection{
-    static getDbConnectionIntancia(){
+    static getDbConnectionInstancia(){
         return instance ? instance : new dbConnection();
     }
 
@@ -39,18 +39,18 @@ class dbConnection{
         }
     }
 
-    async insertarNombre(nombre){
+    async insertarNombre(name){
         try{
             const agregarFecha = new Date();
             const insertID = await new Promise((resolve,reject) => {
                 const query = "INSERT INTO nombre(nombre,fecha) VALUES(?,?);";
-                connection.query(query,[nombre,agregarFecha],(err,result)=> {
+                connection.query(query,[name,agregarFecha],(err,result)=> {
                     if(err) reject(new Error(err.message));
                     resolve(result.insertID);
                 })
             });
             //return response
-            console.log(insertID);
+            //console.log("ID: "+insertID);
         } catch(error){
             console.log(error);
         }

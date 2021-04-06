@@ -14,7 +14,7 @@
 
 ## Para usar el proyecto debemos de crear una tabla de la siguiente forma:
 
-CREATE TABLE crud{
+CREATE TABLE nombre{
     id int primary key NOT NULL auto_increment,
     nombre varchar(100) NOT NULL,
     fecha datetime NOT NULL

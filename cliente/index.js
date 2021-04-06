@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded',function (){
 const addBtn = document.querySelector('#agregar-btn');
 
 addBtn.onclick = function(){
-    const nombreInput = document.querySelector('#nombre-input');
-    const nombre = nombreInput.value;
+    const nameInput = document.querySelector('#nombre-input');
+    const name = nameInput.value;
     nombreInput = "";
 
     fetch('http://localhost:5000/insert', {
@@ -16,7 +16,7 @@ addBtn.onclick = function(){
             'Content-type' : 'application/json'
         },
         method: 'POST',
-        body: JSON.stringify({nombre:nombre})
+        body: JSON.stringify({name:name})
     })
     .then(response => response.json())
     .then(data => insertRowIntoTable(data['data']));
