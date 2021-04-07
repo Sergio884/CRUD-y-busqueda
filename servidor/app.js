@@ -19,15 +19,16 @@ app.post('/insert',(request,response)=>{
     const result = db.insertarNombre(name);
 
     result
-    .then(data => response.json({success:true}))
+    .then(data => response.json({data:data}))
     .catch(err => console.log(err));
 
 });
 
 
 //Read
-app.get('/gelAll',(request,response)=>{
-    const db = dbConnection.getDbConnection();
+app.get('/getAll',(request,response)=>{
+    console.log('test');
+    const db = dbConnection.getDbConnectionInstancia();
     const result = db.getAllData();
 
     result

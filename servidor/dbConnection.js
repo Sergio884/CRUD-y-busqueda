@@ -41,16 +41,19 @@ class dbConnection{
 
     async insertarNombre(name){
         try{
-            const agregarFecha = new Date();
+            const date = new Date();
             const insertID = await new Promise((resolve,reject) => {
                 const query = "INSERT INTO nombre(nombre,fecha) VALUES(?,?);";
-                connection.query(query,[name,agregarFecha],(err,result)=> {
+                connection.query(query,[name,date],(err,result)=> {
                     if(err) reject(new Error(err.message));
                     resolve(result.insertID);
                 })
             });
-            //return response
-            //console.log("ID: "+insertID);
+            return {
+                id : insertID,
+                name : name,
+                date : date
+            }
         } catch(error){
             console.log(error);
         }

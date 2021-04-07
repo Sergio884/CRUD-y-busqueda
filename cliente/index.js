@@ -23,7 +23,29 @@ addBtn.onclick = function(){
 }
 
 function insertRowIntoTable(data){
+    console.log(data)
+    const table = document.querySelector('table tbody');
+    const isTableData = table.querySelector('.no-data');
 
+    let tableHTML = "<tr>";
+
+    data.forEach(function ({id,name,date}) {
+        tableHTML += "<tr>";
+        tableHTML += `<td>${id}</td>`;
+        tableHTML += `<td>${name}</td>`;
+        tableHTML += `<td>${new Date(date).toLocaleString()}</td>`
+        tableHTML += `<td><button class="delete-btn" data-id=${id}>Borrar</td>`;
+        tableHTML += `<td><button class="edit-btn" data-id=${id}>Editar</td>`;
+    });
+
+    tableHTML = "</tr>";
+
+    if(isTableData){
+        table.innerHTML = tableHTML;
+    }else{
+        const newRow = table.insertRow();
+        newRow = table.innerHTML;
+    }
 }
 
 function loadHTMLTable(data){
@@ -32,7 +54,20 @@ function loadHTMLTable(data){
     console.log(data);
 
     if(data.length === 0){
-        table.innerHTML= "<tr><td class='vacio' colspan='5'>Tabla Vacia</td></tr>";
+        table.innerHTML= "<tr><td class='no-data' colspan='5'>Tabla Vacia</td></tr>";
+        return;
     }
+    let tableHTML = "";
+    data.forEach(function ({id,name,date}) {
+        tableHTML += "<tr>";
+        tableHTML += `<td>${id}</td>`;
+        tableHTML += `<td>${name}</td>`;
+        tableHTML += `<td>${new Date(date).toLocaleString()}</td>`
+        tableHTML += `<td><button class="delete-btn" data-id=${id}>Borrar</td>`;
+        tableHTML += `<td><button class="edit-btn" data-id=${id}>Editar</td>`;
+        tableHTML += "</tr>";
+    });
+
+    table.innerHTML = tableHTML;
 }
 
