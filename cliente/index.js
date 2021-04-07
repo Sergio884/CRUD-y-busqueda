@@ -32,21 +32,21 @@ function insertRowIntoTable(data){
     for(var key in data){
         if(data.hasOwnProperty(key)){
             if(key==='date'){
-                data[key]= new Date(data[key].toLocaleString());
+                data[key]= new Date(data[key]).toLocaleString();
             }
             tableHTML += `<td>${data[key]}</td>`;
         }
     }
 
-    tableHTML += `<td><button class="delete-btn" data-id=${id}>Borrar</td>`;
-    tableHTML += `<td><button class="edit-btn" data-id=${id}>Editar</td>`;
+    tableHTML += `<td><button class="delete-btn" data-id=${data.id}>Borrar</td>`;
+    tableHTML += `<td><button class="edit-btn" data-id=${data.id}>Editar</td>`;
     tableHTML = "</tr>";
 
     if(isTableData){
         table.innerHTML = tableHTML;
     }else{
         const newRow = table.insertRow();
-        newRow = table.innerHTML;
+        newRow.innerHTML = table;
     }
 }
 
