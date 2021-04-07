@@ -29,15 +29,17 @@ function insertRowIntoTable(data){
 
     let tableHTML = "<tr>";
 
-    data.forEach(function ({id,name,date}) {
-        tableHTML += "<tr>";
-        tableHTML += `<td>${id}</td>`;
-        tableHTML += `<td>${name}</td>`;
-        tableHTML += `<td>${new Date(date).toLocaleString()}</td>`
-        tableHTML += `<td><button class="delete-btn" data-id=${id}>Borrar</td>`;
-        tableHTML += `<td><button class="edit-btn" data-id=${id}>Editar</td>`;
-    });
+    for(var key in data){
+        if(data.hasOwnProperty(key)){
+            if(key==='date'){
+                data[key]= new Date(data[key].toLocaleString());
+            }
+            tableHTML += `<td>${data[key]}</td>`;
+        }
+    }
 
+    tableHTML += `<td><button class="delete-btn" data-id=${id}>Borrar</td>`;
+    tableHTML += `<td><button class="edit-btn" data-id=${id}>Editar</td>`;
     tableHTML = "</tr>";
 
     if(isTableData){

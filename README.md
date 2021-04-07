@@ -16,8 +16,8 @@
 
 CREATE TABLE nombre{
     id int primary key NOT NULL auto_increment,
-    nombre varchar(100) NOT NULL,
-    fecha datetime NOT NULL
+    name varchar(100) NOT NULL,
+    date datetime NOT NULL
 }
 
         * user: 'root',

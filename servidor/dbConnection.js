@@ -43,7 +43,7 @@ class dbConnection{
         try{
             const date = new Date();
             const insertID = await new Promise((resolve,reject) => {
-                const query = "INSERT INTO nombre(nombre,fecha) VALUES(?,?);";
+                const query = "INSERT INTO nombre(name,date) VALUES(?,?);";
                 connection.query(query,[name,date],(err,result)=> {
                     if(err) reject(new Error(err.message));
                     resolve(result.insertID);
